@@ -1,4 +1,4 @@
-group 'com.cpdews'
+group 'org.crosslibs'
 version '1.0'
 
 apply plugin: 'groovy'
