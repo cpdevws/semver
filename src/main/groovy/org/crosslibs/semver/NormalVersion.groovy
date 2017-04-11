@@ -1,7 +1,7 @@
-package com.cpdevws.semver
+package org.crosslibs.semver
 
-import com.cpdevws.semver.exceptions.InvalidFormatException
-import com.cpdevws.semver.exceptions.InvalidOperationException
+import org.crosslibs.semver.exceptions.InvalidFormatException
+import org.crosslibs.semver.exceptions.InvalidOperationException
 
 /**
  * Implements the normal version part of the semantic versioning 2.0

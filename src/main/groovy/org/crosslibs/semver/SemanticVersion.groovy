@@ -1,6 +1,6 @@
-package com.cpdevws.semver
+package org.crosslibs.semver
 
-import static com.cpdevws.semver.NormalVersion.Type.*
+import static org.crosslibs.semver.NormalVersion.Type.*
 
 /**
  * Implements semantic versioning 2.0

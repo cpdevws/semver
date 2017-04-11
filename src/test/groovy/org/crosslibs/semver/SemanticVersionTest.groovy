@@ -1,12 +1,12 @@
-package com.cpdevws.semver
+package org.crosslibs.semver
 
-import com.cpdevws.semver.exceptions.InvalidFormatException
-import com.cpdevws.semver.exceptions.InvalidOperationException
+import org.crosslibs.semver.exceptions.InvalidOperationException
+import org.crosslibs.semver.exceptions.InvalidFormatException
 import org.junit.Before
 import org.junit.Test
 
 /**
- * Author: cpdews (cpdevws@gmail.com)
+ * @author cpdews (cpdevws@gmail.com)
  */
 class SemanticVersionTest {
 

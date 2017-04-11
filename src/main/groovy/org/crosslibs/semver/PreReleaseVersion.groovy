@@ -1,6 +1,6 @@
-package com.cpdevws.semver
+package org.crosslibs.semver
 
-import com.cpdevws.semver.exceptions.InvalidFormatException
+import org.crosslibs.semver.exceptions.InvalidFormatException
 
 /**
  * Implements the pre-release version string as part of the semantic versioning 2.0 rules

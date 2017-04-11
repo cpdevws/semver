@@ -1,8 +1,6 @@
-package com.cpdevws.semver
+package org.crosslibs.semver
 
-import com.cpdevws.semver.exceptions.InvalidFormatException
-
-import javax.lang.model.element.NestingKind
+import org.crosslibs.semver.exceptions.InvalidFormatException
 
 /**
  * Abstract class, provides base for implementing string IDs

@@ -1,4 +1,4 @@
-package com.cpdevws.semver.exceptions
+package org.crosslibs.semver.exceptions
 
 /**
  * Used to raise exceptions when the version is not properly formatted

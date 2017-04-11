@@ -1,4 +1,4 @@
-package com.cpdevws.semver.exceptions
+package org.crosslibs.semver.exceptions
 
 /**
  * Used to raise exceptions when an unsupported operation is invoked

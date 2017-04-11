@@ -1,4 +1,4 @@
-package com.cpdevws.semver.exceptions
+package org.crosslibs.semver.exceptions
 
 import org.junit.Before
 import org.junit.Rule
@@ -6,7 +6,7 @@ import org.junit.Test
 import org.junit.rules.ExpectedException
 
 /**
- * Author: cpdews (cpdevws@gmail.com)
+ * @author cpdews (cpdevws@gmail.com)
  */
 class InvalidOperationExceptionTest {
 
