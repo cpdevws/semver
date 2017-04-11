@@ -3,6 +3,8 @@ version '1.0'
 
 apply plugin: 'groovy'
 apply plugin: 'jacoco'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 repositories {
     jcenter()
@@ -21,8 +23,9 @@ groovydoc {
     windowTitle = 'org.crosslibs.semver:1.0 API'
 }
 
+
 task docsjar(type: Jar, dependsOn: groovydoc){
-    classifier = 'groovydoc'
+    classifier = 'javadoc'
     from groovydoc.destinationDir
 }
 
@@ -34,6 +37,54 @@ task sourcesjar(type: Jar, dependsOn: classes){
 artifacts {
     archives docsjar
     archives sourcesjar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'Semantic Versioning 2.0'
+                packaging 'jar'
+                description 'Groovy implementation of semantic versioning 2.0 rules'
+                url 'https://github.com/cpdevws/semver'
+
+                scm {
+                    connection 'scm:git:git://github.com/cpdevws/semver.git'
+                    developerConnection 'scm:git:ssh://github.com:cpdevws/semver.git'
+                    url 'https://github.com/cpdevws/semver/tree/master'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://www.opensource.org/licenses/mit-license.php'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'cpdevws'
+                        name 'Chaitanya Prakash N'
+                        email 'cpdevws@gmail.com'
+                    }
+                }
+            }
+        }
+    }
 }
 
 dependencies {
