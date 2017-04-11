@@ -81,14 +81,6 @@ class NormalVersionTest {
     }
 
     @Test
-    void should_adding_two_versions_increments_the_major_minor_major_patch_appropriately() {
-        assert normalVersion + new NormalVersion(1, 2, 3) == new NormalVersion(2, 4, 6)
-        assert normalVersion + null == normalVersion
-        normalVersion += normalVersion
-        assert normalVersion == new NormalVersion(2, 4, 6)
-    }
-
-    @Test
     void should_increment_patch_version_using_next_operator() {
         assert normalVersion++ == new NormalVersion(1, 2, 4)
         assert ++normalVersion == new NormalVersion(1, 2, 5)

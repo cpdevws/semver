@@ -3,14 +3,25 @@ package com.cpdevws.semver
 import com.cpdevws.semver.exceptions.InvalidFormatException
 
 /**
- * Author: cpdews (cpdevws@gmail.com)
+ * Implements the pre-release version string as part of the semantic versioning 2.0 rules
+ *
+ * @author cpdews (cpdevws@gmail.com)
  */
 class PreReleaseVersion extends StringVersion {
 
+    /**
+     * Class constructor with optional parameter
+     * @param preReleaseVersionStr pre-release version string
+     */
     PreReleaseVersion(String preReleaseVersionStr = null){
         super(preReleaseVersionStr)
     }
 
+    /**
+     * Validation rules for pre-release version
+     * @param idStr string id
+     * @throws InvalidFormatException when id string contains an invalid character or is a non-zero number starting with 0
+     */
     @Override
     void validateFormat(String idStr) throws InvalidFormatException {
         if (idStr ==~ /^0(\d+)$/) {
@@ -22,15 +33,22 @@ class PreReleaseVersion extends StringVersion {
         }
     }
 
+    /**
+     * Compare two pre-release version objects
+     * @param o other pre-release version to be compared against
+     * @return 0 if equal, -ve if this is of lower precedence to o, +ve if this is of higher precedence to o.
+     */
     @Override
     int compareTo(StringVersion o) {
 
-        // Comparing with a release version
+        // If o is a release build
         if(o == null || o.isNotDefined()) {
+            // Then it is of higher precedence, if the current is a pre-release build
+            // Otherwise, both are release builds, hence of same precedence.
             return isNotDefined() ? 0 : -1
         }
 
-        // Clearly this is a release build
+        // If this is a release build, it is of higher precedence
         if(isNotDefined()) {
             return 1
         }

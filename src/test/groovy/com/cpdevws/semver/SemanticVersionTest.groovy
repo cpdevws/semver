@@ -114,14 +114,6 @@ class SemanticVersionTest {
     }
 
     @Test
-    void should_adding_two_versions_increments_the_major_minor_patch_appropriately() {
-        assert semanticVersion + new SemanticVersion(1, 2, 3) == new SemanticVersion(2, 4, 6)
-        assert semanticVersion + null == semanticVersion
-        semanticVersion += semanticVersion
-        assert semanticVersion == new SemanticVersion(2, 4, 6)
-    }
-
-    @Test
     void should_increment_patch_version_using_next_operator() {
         assert semanticVersion++ == new SemanticVersion(1, 2, 4)
         assert ++semanticVersion == new SemanticVersion(1, 2, 5)
