@@ -16,6 +16,26 @@ jacocoTestReport {
     }
 }
 
+groovydoc {
+    docTitle = 'Semantic Versioning 2.0 Implementation API<br/>(org.crosslibs.semver)<br/>'
+    windowTitle = 'org.crosslibs.semver:1.0 API'
+}
+
+task docsjar(type: Jar, dependsOn: groovydoc){
+    classifier = 'groovydoc'
+    from groovydoc.destinationDir
+}
+
+task sourcesjar(type: Jar, dependsOn: classes){
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives docsjar
+    archives sourcesjar
+}
+
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.10'
     testCompile group: 'junit', name: 'junit', version: '4.12'
