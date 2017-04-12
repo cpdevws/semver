@@ -1,5 +1,5 @@
 group 'org.crosslibs'
-version '1.0'
+version '1.0.1'
 
 apply plugin: 'groovy'
 apply plugin: 'jacoco'
@@ -88,6 +88,6 @@ uploadArchives {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.10'
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
